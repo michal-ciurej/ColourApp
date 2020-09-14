@@ -1,4 +1,4 @@
-package com.example.colourapp
+package com.colorwheelapp.colourapp
 
 import org.junit.Test
 

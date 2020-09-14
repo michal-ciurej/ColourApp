@@ -1,27 +1,18 @@
-package com.example.colourapp
+package com.colorwheelapp.colourapp
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.graphics.blue
-import androidx.core.graphics.green
-import androidx.core.graphics.red
 import com.apandroid.colorwheel.ColorWheel
-import com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
 import com.apandroid.colorwheel.gradientseekbar.setBlackToColor
 import dev.jorgecastillo.androidcolorx.library.analogous
 import dev.jorgecastillo.androidcolorx.library.asHex
 import dev.jorgecastillo.androidcolorx.library.asRgb
 import dev.jorgecastillo.androidcolorx.library.complimentary
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.activity_main.view.gradientSeekBar
-import org.w3c.dom.Text
-import java.lang.Double.toHexString
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
