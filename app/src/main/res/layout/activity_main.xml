@@ -16,105 +16,237 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:id="@+id/containing_vert_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/Vert50">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <com.apandroid.colorwheel.ColorWheel
-            android:id="@+id/colorWheel"
+        <LinearLayout
+            android:id="@+id/colours_containing_hor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            android:weightSum="1"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/analogous_col1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/shape_back" />
+
+                <TextView
+                    android:id="@+id/analogous_col1_overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/analogous_col1"
+                    android:layout_alignLeft="@id/analogous_col1"
+                    android:layout_alignTop="@id/analogous_col1"
+                    android:layout_alignEnd="@id/analogous_col1"
+                    android:layout_alignRight="@id/analogous_col1"
+                    android:layout_alignBottom="@id/analogous_col1"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_weight="0.25"
+                >
+
+                <ImageView
+                    android:id="@+id/analogous_col2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/shape_back" />
+
+                <TextView
+                    android:id="@+id/analogous_col2_overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/analogous_col2"
+                    android:layout_alignLeft="@id/analogous_col2"
+                    android:layout_alignTop="@id/analogous_col2"
+                    android:layout_alignEnd="@id/analogous_col2"
+                    android:layout_alignRight="@id/analogous_col2"
+                    android:layout_alignBottom="@id/analogous_col2"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/comp_colour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/shape_back" />
+
+                <TextView
+                    android:id="@+id/comp_colour_overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/comp_colour"
+                    android:layout_alignLeft="@id/comp_colour"
+                    android:layout_alignTop="@id/comp_colour"
+                    android:layout_alignEnd="@id/comp_colour"
+                    android:layout_alignRight="@id/comp_colour"
+                    android:layout_alignBottom="@id/comp_colour"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/fourthview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/shape_back" />
+
+                <TextView
+                    android:id="@+id/fourthview_overlay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@id/fourthview"
+                    android:layout_alignLeft="@id/fourthview"
+                    android:layout_alignTop="@id/fourthview"
+                    android:layout_alignEnd="@id/fourthview"
+                    android:layout_alignRight="@id/fourthview"
+                    android:layout_alignBottom="@id/fourthview"
+                    android:layout_margin="1dp"
+                    android:gravity="center"
+                    android:textColor="#000000" />
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/chosen_colour_lin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            android:layout_weight="1"
+            >
+
+
+
+
+            <ImageView
+                    android:id="@+id/chosen_colour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/shape_back"
+                            />
+
+            <TextView
+                android:id="@+id/chosen_colour_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                            />
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wheel_containing_hor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
-            android:id="@+id/gradientSeekBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp" />
+
+            <com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
+                android:id="@+id/gradientSeekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <com.apandroid.colorwheel.ColorWheel
+                android:id="@+id/colorWheel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/rgb_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
-        android:layout_marginLeft="61dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginRight="117dp"
-        android:layout_marginBottom="247dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toStartOf="@+id/argb_box"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/argb_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="246dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rgb_box"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="409dp"
-        android:layout_height="245dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/Vert50"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgb_box">
 
 
-        <ImageView
-            android:id="@+id/comp_colour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/shape_back" />
 
-        <ImageView
-            android:id="@+id/analogous_col1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/shape_back" />
-
-        <ImageView
-            android:id="@+id/analogous_col2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/shape_back" />
-    </androidx.gridlayout.widget.GridLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,8 @@
 
 
     <!--If your shape requires only one solid color-->
-    <!--<solid
-        android:color="#FFFFFF" />-->
+    <solid
+        android:color="#FFFFFF" />
 
     <size
         android:width="82dp"

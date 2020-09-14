@@ -13,10 +13,12 @@ import com.apandroid.colorwheel.ColorWheel
 import com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
 import com.apandroid.colorwheel.gradientseekbar.setBlackToColor
 import dev.jorgecastillo.androidcolorx.library.analogous
+import dev.jorgecastillo.androidcolorx.library.asHex
 import dev.jorgecastillo.androidcolorx.library.complimentary
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.activity_main.view.gradientSeekBar
+import org.w3c.dom.Text
 import java.lang.Double.toHexString
 import kotlin.properties.Delegates
 
@@ -27,8 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val colorWheel = findViewById<ColorWheel>(R.id.colorWheel)
         val slider = gradientSeekBar.argb
-        var rgbtext = findViewById<TextView>(R.id.rgb_box)
-        var argbtext = findViewById<TextView>(R.id.argb_box)
+
 
 
         var background = findViewById<View>(R.id.background)
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             gradientSeekBar.setBlackToColor(rgb)
             //rgbtext.text = rgb.toString()
             var wht = rgb.blue
-            rgbtext.text = wht.toString()
+
 
 
 
@@ -47,23 +48,28 @@ class MainActivity : AppCompatActivity() {
 
         gradientSeekBar.colorChangeListener = { offset: Float, argb: Int ->
 
-            background.setBackgroundColor(gradientSeekBar.argb)
+            chosen_colour.setColorFilter(gradientSeekBar.argb)
             var comp = argb.complimentary()
             var analogous: Pair<Int, Int> = argb.analogous()
-            var anLocator = findViewById<ImageView>(R.id.analogous_col1)
-            var an2Locator = findViewById<ImageView>(R.id.analogous_col2)
-            anLocator.setBackgroundColor(analogous.first)
-            an2Locator.setBackgroundColor(analogous.second)
+            val anLocator = findViewById<ImageView>(R.id.analogous_col1)
+            val an2Locator = findViewById<ImageView>(R.id.analogous_col2)
+            val anTextLocator = findViewById<TextView>(R.id.analogous_col1_overlay)
+            var an2TextLocator = findViewById<TextView>(R.id.analogous_col2_overlay)
+            val compTextLocator = findViewById<TextView>(R.id.comp_colour_overlay)
+
+
+            anTextLocator.text = analogous.first.asHex().toString().substring(3)
+            an2TextLocator.text = analogous.second.asHex().toString().substring(3)
+            compTextLocator.text = comp.asHex().toString().substring(3)
+            anLocator.setColorFilter(analogous.first)
+            an2Locator.setColorFilter(analogous.second)
             var compLocator = findViewById<ImageView>(R.id.comp_colour)
-            compLocator.setBackgroundColor(comp)
+            compLocator.setColorFilter(comp)
 
 
 
 
 
-            //argbtext.text = argb.toString()
-            val finalcolor = java.lang.Integer.toHexString(argb)
-            argbtext.text = finalcolor.substring(2).toUpperCase()
                     //gradientSeekBar.argb.toString()
         }
 
