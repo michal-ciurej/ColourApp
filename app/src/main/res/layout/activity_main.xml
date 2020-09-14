@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
+    android:background="@color/eigengrau"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -63,7 +64,10 @@
                     android:layout_alignBottom="@id/analogous_col1"
                     android:layout_margin="1dp"
                     android:gravity="center"
-                    android:textColor="#000000" />
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="5"
+                    android:textSize="16sp"
+                    android:textColor="@color/light" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -92,7 +96,10 @@
                     android:layout_alignBottom="@id/analogous_col2"
                     android:layout_margin="1dp"
                     android:gravity="center"
-                    android:textColor="#000000" />
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="5"
+                    android:textSize="16sp"
+                    android:textColor="@color/light" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -120,7 +127,10 @@
                     android:layout_alignBottom="@id/comp_colour"
                     android:layout_margin="1dp"
                     android:gravity="center"
-                    android:textColor="#000000" />
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="5"
+                    android:textSize="16sp"
+                    android:textColor="@color/light" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -146,9 +156,17 @@
                     android:layout_alignEnd="@id/fourthview"
                     android:layout_alignRight="@id/fourthview"
                     android:layout_alignBottom="@id/fourthview"
-                    android:layout_margin="1dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
                     android:gravity="center"
-                    android:textColor="#000000" />
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="5"
+                    android:textColor="@color/light"
+                    android:textSize="16sp" />
             </RelativeLayout>
 
 
@@ -161,40 +179,53 @@
         <LinearLayout
             android:id="@+id/chosen_colour_lin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
+            android:layout_height="0dp"
+            android:layout_gravity="start"
+            android:layout_weight="1"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
-            android:paddingTop="20dp"
             android:paddingRight="10dp"
-            android:paddingBottom="20dp"
-            android:layout_weight="1"
-            >
-
-
+            android:paddingBottom="20dp">
 
 
             <ImageView
-                    android:id="@+id/chosen_colour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/shape_back"
-                            />
-
-            <TextView
-                android:id="@+id/chosen_colour_value"
+                android:id="@+id/chosen_colour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                            />
-
-
-
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                app:srcCompat="@drawable/shape_main" />
 
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/chosen_colour_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="@color/light"
+                    android:shadowRadius="10"
+                    android:textColor="@color/light"
+
+                    />
+
+                <TextView
+                    android:id="@+id/chosen_colour_value_rgb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="@color/light"
+                    android:shadowRadius="10"
+                    android:textColor="@color/light"
+
+                    />
 
 
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -209,6 +240,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:gravity="bottom"
+            android:background="@drawable/background_shape_grey"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -218,6 +250,7 @@
 
             <com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
                 android:id="@+id/gradientSeekBar"
+                app:asb_thumbColor="@color/eigengrau"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
@@ -229,6 +262,7 @@
 
             <com.apandroid.colorwheel.ColorWheel
                 android:id="@+id/colorWheel"
+                app:cw_thumbColor="@color/eigengrau"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

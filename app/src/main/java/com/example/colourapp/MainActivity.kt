@@ -14,6 +14,7 @@ import com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
 import com.apandroid.colorwheel.gradientseekbar.setBlackToColor
 import dev.jorgecastillo.androidcolorx.library.analogous
 import dev.jorgecastillo.androidcolorx.library.asHex
+import dev.jorgecastillo.androidcolorx.library.asRgb
 import dev.jorgecastillo.androidcolorx.library.complimentary
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -56,8 +57,12 @@ class MainActivity : AppCompatActivity() {
             val anTextLocator = findViewById<TextView>(R.id.analogous_col1_overlay)
             var an2TextLocator = findViewById<TextView>(R.id.analogous_col2_overlay)
             val compTextLocator = findViewById<TextView>(R.id.comp_colour_overlay)
+            val chosenColour = findViewById<TextView>(R.id.chosen_colour_value)
+            val chosenColourrgb = findViewById<TextView>(R.id.chosen_colour_value_rgb)
 
 
+            chosenColourrgb.text = argb.asRgb().toString()
+            chosenColour.text = argb.asHex().toString()
             anTextLocator.text = analogous.first.asHex().toString().substring(3)
             an2TextLocator.text = analogous.second.asHex().toString().substring(3)
             compTextLocator.text = comp.asHex().toString().substring(3)
