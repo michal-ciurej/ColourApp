@@ -23,7 +23,40 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat ="@drawable/overlay"
+        >
+
+    <LinearLayout
+        android:id="@+id/selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+        android:weightSum="1"
+        >
+
+
+        <com.wefika.horizontalpicker.HorizontalPicker
+            xmlns:picker="http://schemas.android.com/apk/res/com.wefika.horizontalpicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/light"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:marqueeRepeatLimit="-1"
+            app:values="@array/values"
+            app:dividerSize="10dp"
+            app:sideItems="@integer/sideItems"
+            />
+
+            </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/colours_containing_hor"

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ColourApp</string>
+
+    <string-array name="values">
+        <item>Compound</item>
+        <item>Complimentary</item>
+        <item>Analogous</item>
+        <item>Item 4 is really long</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+
+    </string-array>
 </resources>

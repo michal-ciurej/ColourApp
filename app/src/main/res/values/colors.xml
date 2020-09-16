@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="eigengrau">#161616</color>
     <color name="black">#000000</color>
+    <color name="white">#CCFFFFFF</color>
     <color name="grey">#64646A</color>
     <color name="light">#E0E3DC</color>
 </resources>
