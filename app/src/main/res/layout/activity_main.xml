@@ -41,19 +41,26 @@
         android:weightSum="1"
         >
 
-
-        <com.wefika.horizontalpicker.HorizontalPicker
-            xmlns:picker="http://schemas.android.com/apk/res/com.wefika.horizontalpicker"
+        <com.bosphere.fadingedgelayout.FadingEdgeLayout
+            android:id="@+id/fading_edge_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/light"
-            android:textSize="18sp"
-            android:ellipsize="end"
-            android:marqueeRepeatLimit="-1"
-            app:values="@array/values"
-            app:dividerSize="10dp"
-            app:sideItems="@integer/sideItems"
-            />
+            android:layout_height="match_parent"
+            app:fel_edge="left|right"
+            app:fel_size_left="120dp"
+            app:fel_size_right="120dp">
+
+            <com.wefika.horizontalpicker.HorizontalPicker
+                android:id="@+id/relationship_selector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:marqueeRepeatLimit="-1"
+                android:textColor="@color/light"
+                android:textSize="18sp"
+                app:dividerSize="10dp"
+                app:sideItems="@integer/sideItems"
+                app:values="@array/values" />
+        </com.bosphere.fadingedgelayout.FadingEdgeLayout>
 
             </LinearLayout>
 
@@ -80,21 +87,21 @@
                 android:layout_weight="0.25">
 
                 <ImageView
-                    android:id="@+id/analogous_col1"
+                    android:id="@+id/GridCol1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/shape_back" />
 
                 <TextView
-                    android:id="@+id/analogous_col1_overlay"
+                    android:id="@+id/gridcol1_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/analogous_col1"
-                    android:layout_alignLeft="@id/analogous_col1"
-                    android:layout_alignTop="@id/analogous_col1"
-                    android:layout_alignEnd="@id/analogous_col1"
-                    android:layout_alignRight="@id/analogous_col1"
-                    android:layout_alignBottom="@id/analogous_col1"
+                    android:layout_alignStart="@id/GridCol1"
+                    android:layout_alignLeft="@id/GridCol1"
+                    android:layout_alignTop="@id/GridCol1"
+                    android:layout_alignEnd="@id/GridCol1"
+                    android:layout_alignRight="@id/GridCol1"
+                    android:layout_alignBottom="@id/GridCol1"
                     android:layout_margin="1dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
@@ -114,21 +121,21 @@
                 >
 
                 <ImageView
-                    android:id="@+id/analogous_col2"
+                    android:id="@+id/GridCol2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/shape_back" />
 
                 <TextView
-                    android:id="@+id/analogous_col2_overlay"
+                    android:id="@+id/gridcol2_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/analogous_col2"
-                    android:layout_alignLeft="@id/analogous_col2"
-                    android:layout_alignTop="@id/analogous_col2"
-                    android:layout_alignEnd="@id/analogous_col2"
-                    android:layout_alignRight="@id/analogous_col2"
-                    android:layout_alignBottom="@id/analogous_col2"
+                    android:layout_alignStart="@id/GridCol2"
+                    android:layout_alignLeft="@id/GridCol2"
+                    android:layout_alignTop="@id/GridCol2"
+                    android:layout_alignEnd="@id/GridCol2"
+                    android:layout_alignRight="@id/GridCol2"
+                    android:layout_alignBottom="@id/GridCol2"
                     android:layout_margin="1dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
@@ -147,21 +154,21 @@
                 android:layout_weight="0.25">
 
                 <ImageView
-                    android:id="@+id/comp_colour"
+                    android:id="@+id/GridCol3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/shape_back" />
 
                 <TextView
-                    android:id="@+id/comp_colour_overlay"
+                    android:id="@+id/gridCol3_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/comp_colour"
-                    android:layout_alignLeft="@id/comp_colour"
-                    android:layout_alignTop="@id/comp_colour"
-                    android:layout_alignEnd="@id/comp_colour"
-                    android:layout_alignRight="@id/comp_colour"
-                    android:layout_alignBottom="@id/comp_colour"
+                    android:layout_alignStart="@id/GridCol3"
+                    android:layout_alignLeft="@id/GridCol3"
+                    android:layout_alignTop="@id/GridCol3"
+                    android:layout_alignEnd="@id/GridCol3"
+                    android:layout_alignRight="@id/GridCol3"
+                    android:layout_alignBottom="@id/GridCol3"
                     android:layout_margin="1dp"
                     android:gravity="center"
                     android:shadowColor="@color/black"
@@ -180,21 +187,21 @@
                 android:layout_weight="0.25">
 
                 <ImageView
-                    android:id="@+id/fourthview"
+                    android:id="@+id/GridCol4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/shape_back" />
 
                 <TextView
-                    android:id="@+id/fourthview_overlay"
+                    android:id="@+id/GridCol4_overlay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@id/fourthview"
-                    android:layout_alignLeft="@id/fourthview"
-                    android:layout_alignTop="@id/fourthview"
-                    android:layout_alignEnd="@id/fourthview"
-                    android:layout_alignRight="@id/fourthview"
-                    android:layout_alignBottom="@id/fourthview"
+                    android:layout_alignStart="@id/GridCol4"
+                    android:layout_alignLeft="@id/GridCol4"
+                    android:layout_alignTop="@id/GridCol4"
+                    android:layout_alignEnd="@id/GridCol4"
+                    android:layout_alignRight="@id/GridCol4"
+                    android:layout_alignBottom="@id/GridCol4"
                     android:layout_marginStart="1dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginTop="1dp"
@@ -323,9 +330,16 @@
 
     </LinearLayout>
 
-
-
-
+    <TextView
+        android:id="@+id/checkmeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="181dp"
+        android:layout_marginLeft="181dp"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

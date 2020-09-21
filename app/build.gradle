@@ -44,6 +44,8 @@ dependencies {
 
     compile 'com.wefika:horizontal-picker:1.1.1'
 
+    compile 'com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0'
+
 
     implementation 'com.apandroid:colorwheel:1.1.11'
 
