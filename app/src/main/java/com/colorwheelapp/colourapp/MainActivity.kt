@@ -1,6 +1,5 @@
 package com.colorwheelapp.colourapp
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,13 +35,14 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         var ThirdLocator = findViewById<ImageView>(R.id.GridCol3)
         val ThirdTextLocator = findViewById<TextView>(R.id.gridCol3_overlay)
         val FourthLocator = findViewById<ImageView>(R.id.GridCol4)
-        var fourthtextlocator = findViewById<TextView>(R.id.GridCol4_overlay)
+        var FourthTextLocator = findViewById<TextView>(R.id.GridCol4_overlay)
 
         val chosenColour = findViewById<TextView>(R.id.chosen_colour_value)
         val chosenColourrgb = findViewById<TextView>(R.id.chosen_colour_value_rgb)
 
-        SecondLocator.setColorFilter(R.color.eigengrau)
-        ThirdLocator.setColorFilter(R.color.eigengrau)
+        FirstLocator.setColorFilter(R.color.black)
+        SecondLocator.setColorFilter(R.color.black)
+        ThirdLocator.setColorFilter(R.color.black)
         FourthLocator.setColorFilter(R.color.black)
 
         var picker = HorizontalPicker(this)
@@ -66,47 +66,90 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
 
-            var comp = argb.complimentary()
-            var analogous: Pair<Int, Int> = argb.analogous()
-            var tri: Pair<Int, Int> = argb.triadic()
+            var comp = argb.complimentary() //returns one complimentary, will be at array 1
+            var analogous: Pair<Int, Int> = argb.analogous() //returns two analogous, will be at array 3
+            var tri: Pair<Int, Int> = argb.triadic() //returns two which make triadic combined with the comp, will be ar array2
+            var tet: Triple<Int, Int, Int> = argb.tetradic()
+            var shadess: List<Int> = argb.tints()
+
 
 
 
             when (i) {
-
+ // 0 is monochromatic
                 0 ->  {
-                    FirstLocator.setColorFilter(comp)
-                    FirstTextLocator.text = comp.asHex().toString().substring(3)
+                    FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
+                    SecondTextLocator.text = shadess.elementAt(5).asHex().toString().substring(3)
+                    ThirdTextLocator.text = shadess.elementAt(7).asHex().toString().substring(3)
+                    FourthTextLocator.text = shadess.elementAt(8).darken(50).asHex().toString().substring(3)
 
-                    SecondTextLocator.text = " "
-                    ThirdTextLocator.text = " "
+                    FirstLocator.setColorFilter(shadess.elementAt(3))
+                    SecondLocator.setColorFilter(shadess.elementAt(5))
+                    ThirdLocator.setColorFilter(shadess.elementAt(7))
+                    FourthLocator.setColorFilter(shadess.elementAt(8).darken(50))
 
-                    SecondLocator.setColorFilter(R.color.eigengrau)
-                    ThirdLocator.setColorFilter(R.color.eigengrau)
-                    FourthLocator.setColorFilter(R.color.black)
 
                 }
+
+                // 1 is Complimentary
                 1 -> {
-                    FirstLocator.setColorFilter(comp)
-                    FirstTextLocator.text = comp.asHex().toString().substring(3)
 
-                    SecondTextLocator.text = analogous.first.asHex().toString().substring(3)
-                    ThirdTextLocator.text = analogous.second.asHex().toString().substring(3)
+                    FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
+                    SecondTextLocator.text = comp.asHex().toString().substring(3)
+                    ThirdTextLocator.text = shadess.elementAt(3).complimentary().asHex().toString().substring(3)
+                    FourthTextLocator.text = shadess.elementAt(5).complimentary().asHex().toString().substring(3)
 
-                    SecondLocator.setColorFilter(analogous.first)
-                    ThirdLocator.setColorFilter(analogous.second)
+                    FirstLocator.setColorFilter(shadess.elementAt(3))
+                    SecondLocator.setColorFilter(comp)
+                    ThirdLocator.setColorFilter(shadess.elementAt(3).complimentary())
+                    FourthLocator.setColorFilter(shadess.elementAt(5).complimentary())
+
 
                 }
-
+//2 is triadic
                 2 -> {
-                    FirstLocator.setColorFilter(comp)
+                    FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
+                    SecondTextLocator.text = comp.asHex().toString().substring(3)
+                    ThirdTextLocator.text = tri.first.asHex().toString().substring(3)
+                    FourthTextLocator.text = tri.second.asHex().toString().substring(3)
+
+
+                    FirstLocator.setColorFilter(shadess.elementAt(3))
+                    SecondLocator.setColorFilter(comp)
+                    ThirdLocator.setColorFilter(tri.first)
+                    FourthLocator.setColorFilter(tri.second)
+
+
+                }
+                // 3 is analogous
+                3 -> {
+
+                    FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
+                    SecondTextLocator.text = comp.asHex().toString().substring(3)
+                    ThirdTextLocator.text = analogous.first.asHex().toString().substring(3)
+                    FourthTextLocator.text = analogous.second.asHex().toString().substring(3)
+
+
+                    FirstLocator.setColorFilter(shadess.elementAt(3))
+                    SecondLocator.setColorFilter(comp)
+                    ThirdLocator.setColorFilter(analogous.first)
+                    FourthLocator.setColorFilter(analogous.second)
+
+
+                }
+                //4 is tetradic
+                4 -> {
+
                     FirstTextLocator.text = comp.asHex().toString().substring(3)
+                    SecondTextLocator.text = tet.first.asHex().toString().substring(3)
+                    ThirdTextLocator.text = tet.second.asHex().toString().substring(3)
+                    FourthTextLocator.text = tet.third.asHex().toString().substring(3)
 
-                    SecondTextLocator.text = tri.first.asHex().toString().substring(3)
-                    ThirdTextLocator.text = tri.second.asHex().toString().substring(3)
 
-                    SecondLocator.setColorFilter(tri.first)
-                    ThirdLocator.setColorFilter(tri.second)
+                    FirstLocator.setColorFilter(comp)
+                    SecondLocator.setColorFilter(tet.first)
+                    ThirdLocator.setColorFilter(tet.second)
+                    FourthLocator.setColorFilter(tet.third)
 
 
                 }
@@ -114,6 +157,11 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 else -> {
                     println("calling else")
                 }
+
+
+
+
+
 
 
 

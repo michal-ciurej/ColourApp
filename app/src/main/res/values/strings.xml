@@ -2,11 +2,11 @@
     <string name="app_name">ColourApp</string>
 
     <string-array name="values">
-        <item>Compound</item>
+        <item>Monochromatic</item>
         <item>Complimentary</item>
+        <item>Triadic</item>
         <item>Analogous</item>
-        <item>Tertiary</item>
-        <item>Test Item</item>
+        <item>Tetradic</item>
 
     </string-array>
 </resources>
