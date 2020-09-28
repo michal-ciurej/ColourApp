@@ -47,6 +47,9 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="5sp"
+                        android:autoSizeTextType="uniform"
                         android:layout_marginEnd="5dp"
                         android:text="@string/prompt"
                         android:layout_marginRight="5dp" />
@@ -120,10 +123,12 @@
                 android:gravity="center"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
-
+                android:autoSizeMaxTextSize="24sp"
+                android:autoSizeMinTextSize="8sp"
+                android:autoSizeTextType="uniform"
                 android:selectAllOnFocus="true"
                 android:text="@string/hexprompt"
-                android:textSize="10sp" />
+/>
 
 
                 <Button
@@ -135,12 +140,13 @@
                     android:layout_marginEnd="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="5dp"
+                    android:autoSizeMaxTextSize="24sp"
+                    android:autoSizeMinTextSize="8sp"
+                    android:autoSizeTextType="uniform"
                     android:background="@drawable/button_back"
                     android:gravity="center"
+                    android:padding="6dp"
                     android:text="@string/set"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMinTextSize="8sp"
-                    android:autoSizeMaxTextSize="100sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
