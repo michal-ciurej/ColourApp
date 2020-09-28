@@ -9,4 +9,12 @@
         <item>Tetradic</item>
 
     </string-array>
+
+    <string name="hash">#</string>
+    <string name="r">r:</string>
+    <string name="g">g:</string>
+    <string name="b">b:</string>
+    <string name="hexprompt">Enter HEX value: #</string>
+
+
 </resources>
