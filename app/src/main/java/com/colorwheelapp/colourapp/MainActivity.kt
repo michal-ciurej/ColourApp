@@ -26,7 +26,10 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, HorizontalPicker.OnItemClicked  {
     companion object {
         var i = 0
+
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -35,6 +38,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
         val colorWheel = findViewById<ColorWheel>(R.id.colorWheel)
         val slider = gradientSeekBar.argb
+
 
         val FirstLocator = findViewById<ImageView>(R.id.GridCol1)
         val SecondLocator = findViewById<ImageView>(R.id.GridCol2)
@@ -75,12 +79,12 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
 
+            var shadess: List<Int> = argb.tints()
 
             var comp = argb.complimentary() //returns one complimentary, will be at array 1
             var analogous: Pair<Int, Int> = argb.analogous() //returns two analogous, will be at array 3
             var tri: Pair<Int, Int> = argb.triadic() //returns two which make triadic combined with the comp, will be ar array2
             var tet: Triple<Int, Int, Int> = argb.tetradic()
-            var shadess: List<Int> = argb.tints()
 
 
 
@@ -88,6 +92,8 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             when (i) {
  // 0 is monochromatic
                 0 ->  {
+                  //  var shadess: List<Int> = argb.tints()
+
                     FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
                     SecondTextLocator.text = shadess.elementAt(5).asHex().toString().substring(3)
                     ThirdTextLocator.text = shadess.elementAt(7).asHex().toString().substring(3)
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
                 // 1 is Complimentary
                 1 -> {
+                   // var shadess: List<Int> = argb.tints()
 
                     FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
                     SecondTextLocator.text = comp.asHex().toString().substring(3)
@@ -118,6 +125,8 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 }
 //2 is triadic
                 2 -> {
+                   // var shadess: List<Int> = argb.tints()
+
                     FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
                     SecondTextLocator.text = comp.asHex().toString().substring(3)
                     ThirdTextLocator.text = tri.first.asHex().toString().substring(3)
@@ -133,6 +142,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 }
                 // 3 is analogous
                 3 -> {
+                   // var shadess: List<Int> = argb.tints()
 
                     FirstTextLocator.text = shadess.elementAt(3).asHex().toString().substring(3)
                     SecondTextLocator.text = comp.asHex().toString().substring(3)
@@ -199,6 +209,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             //rgbtext.text = rgb.toString()
             var wht = rgb.blue
 
+
         }
 
 
@@ -207,6 +218,17 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
         //Inside this listener is where I'm gonna do a lot of my code. This is the constantly updating one
         gradientSeekBar.colorChangeListener = { offset: Float, argb: Int->
+
+            var clearred = findViewById<EditText>(R.id.r)
+            var clearblue = findViewById<EditText>(R.id.b)
+            var cleargreen = findViewById<EditText>(R.id.g)
+            var clearhex = findViewById<EditText>(R.id.hexinput)
+
+            clearred.text.clear()
+            clearblue.text.clear()
+            cleargreen.text.clear()
+            clearhex.setText(R.string.hexprompt)
+
 
             var rgb = colorWheel.rgb
             setter(argb, i, rgb)
@@ -223,14 +245,15 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             var argb = Color.rgb(r1,g1,b1)
             var rgb = Color.rgb(r1,g1,b1)
             chosen_colour.setColorFilter(argb)
-            colorWheel.rgb = argb
-            gradientSeekBar.offset = 0F
+            //colorWheel.rgb = argb
+            //gradientSeekBar.offset = 0F
             setter(argb, i, rgb)
 
 
 
 
         }
+
 
 
         var bitch = findViewById<Button>(R.id.setbutton)
@@ -241,6 +264,9 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 //can be chucked
 
                 val hex = findViewById<EditText>(R.id.hexinput)
+                val red = findViewById<EditText>(R.id.r)
+                val green = findViewById<EditText>(R.id.g)
+                val blue = findViewById<EditText>(R.id.b)
 
                 try {
                     var hexint = hex.text.toString()
@@ -248,8 +274,14 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                     var rgb = parseColor(hexint)
 
 
+
                     println("executing try at end")
-                    colorWheel.rgb = argb
+                    //colorWheel.rgb = argb
+                   /* hex.text.clear()
+                    hex.text.clear()
+                    red.text.clear()
+                    green.text.clear()
+                    blue.text.clear()*/
                     setter(argb, i, rgb)
                     return@setOnClickListener
 
@@ -262,24 +294,26 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
                 // this can be chucked
 
-                val red = findViewById<EditText>(R.id.r)
-                val green = findViewById<EditText>(R.id.g)
-                val blue = findViewById<EditText>(R.id.b)
+
 
                 try {
                     if (red.text.toString().isEmpty()) {
-                        Toast.makeText(this, "incomplete red value", Toast.LENGTH_SHORT).show()
+                     //   Toast.makeText(this, "incomplete red value", Toast.LENGTH_SHORT).show()
+                        bruh.performClick()
                         return@setOnClickListener
 
                     }
                     if (green.text.toString().isEmpty()) {
-                        Toast.makeText(this, "incomplete green value", Toast.LENGTH_SHORT).show()
+                    //    Toast.makeText(this, "incomplete green value", Toast.LENGTH_SHORT).show()
+                        bruh.performClick()
+
                         return@setOnClickListener
 
 
                     }
                     if (blue.text.toString().isEmpty()) {
-                        Toast.makeText(this, "incomplete blue value", Toast.LENGTH_SHORT).show()
+                    //    Toast.makeText(this, "incomplete blue value", Toast.LENGTH_SHORT).show()
+                        bruh.performClick()
                         return@setOnClickListener
 
 
@@ -307,6 +341,10 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                             b1 = 255
                             blue.setText(b1.toString())
                         }
+/*                        hex.text.clear()
+                        red.text.clear()
+                        green.text.clear()
+                        blue.text.clear()*/
                         jebsieszmato(r1, g1, b1)
 
 
@@ -324,6 +362,15 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
             }
 
+        bruh.setOnClickListener(){
+
+            var argb = gradientSeekBar.argb
+            var rgb = gradientSeekBar.argb
+
+
+            setter(argb, i, rgb)
+        }
+
 
 
 
@@ -336,13 +383,20 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
     override fun onItemSelected(index:Int) {
         i = index
         println(i)
+        val bruh = findViewById<Button>(R.id.bruh)
+
         //colorWheel.rgb = colorWheel.rgb
         val bitch = findViewById<Button>(R.id.setbutton)
+
+
         val red = findViewById<EditText>(R.id.r)
         val green = findViewById<EditText>(R.id.g)
         val blue = findViewById<EditText>(R.id.b)
 
-        try {
+        bitch.performClick()
+        //bruh.performClick()
+
+/*        try {
 
 
 
@@ -376,6 +430,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 b1 = 255
                 blue.setText(b1.toString())
             }
+
             colorWheel.rgb = Color.rgb(r1,g1,b1)
             bitch.performClick()
 
@@ -386,20 +441,27 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         catch (e: NumberFormatException){
             Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
             return
-        }
+        }*/
     }
     override fun onItemClicked(index:Int) {
         i = index
         println(i)
-      //  colorWheel.rgb = colorWheel.rgb
         val bitch = findViewById<Button>(R.id.setbutton)
+        //  colorWheel.rgb = colorWheel.rgb
+/*
 
 
         val red = findViewById<EditText>(R.id.r)
         val green = findViewById<EditText>(R.id.g)
-        val blue = findViewById<EditText>(R.id.b)
+        val blue = findViewById<EditText>(R.id.b)*/
 
-            try {
+        val bruh = findViewById<Button>(R.id.bruh)
+
+        //bruh.performClick()
+
+        bitch.performClick()
+
+/*            try {
 
 
         if (red.text.toString().isEmpty() ){
@@ -446,7 +508,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             catch (e: NumberFormatException){
                 Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
                 return
-            }
+            }*/
 
 
     }

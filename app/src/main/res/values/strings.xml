@@ -18,7 +18,7 @@
     <string name="prompt">Enter </string>
     <string name="prompt2">or </string>
     <string name="set">Set colour</string>
-
+    <string name="button">Button</string>
 
 
 </resources>

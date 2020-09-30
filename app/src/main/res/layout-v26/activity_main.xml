@@ -119,6 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:singleLine="true"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_marginRight="15dp"
@@ -133,7 +134,9 @@
 
                 <Button
                     android:id="@+id/setbutton"
-                    android:layout_width="90dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    app:icon = "@drawable/brush_icon"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
@@ -146,7 +149,6 @@
                     android:background="@drawable/button_back"
                     android:gravity="center"
                     android:padding="6dp"
-                    android:text="@string/set"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -456,7 +458,16 @@
 
     </LinearLayout>
 
-
+    <Button
+        android:id="@+id/bruh"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/button"
+        android:textColor="@color/light"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
