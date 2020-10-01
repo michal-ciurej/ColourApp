@@ -209,15 +209,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         //Inside this listener is where I'm gonna do a lot of my code. This is the constantly updating one
         gradientSeekBar.colorChangeListener = { offset: Float, argb: Int->
 
-            var clearred = findViewById<EditText>(R.id.r)
-            var clearblue = findViewById<EditText>(R.id.b)
-            var cleargreen = findViewById<EditText>(R.id.g)
-            var clearhex = findViewById<EditText>(R.id.hexinput)
 
-/*            clearred.text.clear()
-            clearblue.text.clear()
-            cleargreen.text.clear()
-            clearhex.setText(R.string.hexprompt)*/
 
 
             var rgb = colorWheel.rgb
@@ -328,7 +320,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                     }
                 }
 
-                catch (e: NumberFormatException){
+                catch (T: Throwable){
 
                     Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
 
