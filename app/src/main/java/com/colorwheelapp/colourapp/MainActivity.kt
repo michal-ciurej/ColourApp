@@ -37,8 +37,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         setContentView(R.layout.activity_main)
 
         val colorWheel = findViewById<ColorWheel>(R.id.colorWheel)
-        val slider = gradientSeekBar.argb
-
+        val clear = findViewById<Button>(R.id.clear)
 
         val FirstLocator = findViewById<ImageView>(R.id.GridCol1)
         val SecondLocator = findViewById<ImageView>(R.id.GridCol2)
@@ -372,7 +371,16 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         }
 
 
-
+        clear.setOnClickListener(){
+            val hex = findViewById<EditText>(R.id.hexinput)
+            val red = findViewById<EditText>(R.id.r)
+            val green = findViewById<EditText>(R.id.g)
+            val blue = findViewById<EditText>(R.id.b)
+            hex.setText(R.string.hexprompt)
+            red.text.clear()
+            green.text.clear()
+            blue.text.clear()
+        }
 
 
 

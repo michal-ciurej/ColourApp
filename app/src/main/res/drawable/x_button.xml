@@ -14,31 +14,31 @@
 
 
 
-        <shape android:shape="rectangle"
-            >
+                <shape android:shape="rectangle"
+                    >
 
-            <corners
+                    <corners
 
-                android:radius="25dp" />
+                        android:radius="25dp" />
 
 
 
-            <!--If your shape requires only one solid color-->
-            <solid android:color="@color/light"/>
+                    <!--If your shape requires only one solid color-->
+                    <solid android:color="@color/light"/>
 
-            <size
-                android:width="174dp"
-                android:height="82dp" />
+                    <size
+                        android:width="174dp"
+                        android:height="82dp" />
 
-            <!--Use android:dashWidth="2dp" and android:dashGap="2dp"
-            to add dashes to your stroke-->
-            <stroke
-                android:width="1dp"
-                android:color="#FFFFFF" />
+                    <!--Use android:dashWidth="2dp" and android:dashGap="2dp"
+                    to add dashes to your stroke-->
+                    <stroke
+                        android:width="1dp"
+                        android:color="#FFFFFF" />
 
-        </shape>
+                </shape>
 
-</item>
+            </item>
 
 
 
@@ -57,7 +57,7 @@
 
         <layer-list>
 
-            <item android:drawable="@drawable/brush_icon"
+            <item android:drawable="@drawable/x_icon"
                 android:bottom="10dp"
                 android:left="10dp"
                 android:right="10dp"

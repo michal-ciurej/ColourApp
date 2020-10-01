@@ -42,16 +42,16 @@
                     android:layout_marginLeft="15dp"
 
                     android:orientation="horizontal">
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:src = "@drawable/pencil_icon"
                         android:autoSizeMaxTextSize="24sp"
                         android:autoSizeMinTextSize="5sp"
                         android:autoSizeTextType="uniform"
                         android:layout_marginEnd="5dp"
-                        android:text="@string/prompt"
                         android:layout_marginRight="5dp" />
 
                     <TextView
@@ -59,6 +59,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:maxWidth="20dp"
                         android:text="@string/r"/>
 
                     <EditText
@@ -67,6 +68,8 @@
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:maxWidth="@dimen/maxrgb"
+
                         android:layout_height="match_parent"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,6 +85,8 @@
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:maxWidth="@dimen/maxrgb"
+
                         android:layout_height="match_parent"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -96,14 +101,16 @@
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:maxWidth="@dimen/maxrgb"
+
                         android:layout_height="match_parent"/>
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginStart="15dp"
-                        android:text="@string/prompt2"
+                        android:src = "@drawable/pencil_icon"
                         android:layout_marginRight="5dp" />
 
 
@@ -123,37 +130,56 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:autoSizeMaxTextSize="24sp"
                 android:autoSizeMinTextSize="8sp"
                 android:autoSizeTextType="uniform"
                 android:selectAllOnFocus="true"
                 android:text="@string/hexprompt"
 />
-
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/setbutton"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                    app:icon = "@drawable/brush_icon"
                     android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="5dp"
-                    android:autoSizeMaxTextSize="24sp"
-                    android:autoSizeMinTextSize="8sp"
-                    android:autoSizeTextType="uniform"
+
                     android:background="@drawable/button_back"
                     android:gravity="center"
                     android:padding="6dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
 
-        </LinearLayout>
+                    android:background="@drawable/x_button"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
 
     <LinearLayout
         android:id="@+id/selector"
