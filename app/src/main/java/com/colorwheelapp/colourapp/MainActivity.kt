@@ -4,16 +4,10 @@ import android.graphics.Color
 import android.graphics.Color.parseColor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.InputType
-import android.text.TextWatcher
 import android.view.View
 import android.widget.*
 import androidx.core.graphics.blue
-import androidx.core.graphics.toColorInt
 import com.apandroid.colorwheel.ColorWheel
-import com.apandroid.colorwheel.gradientseekbar.GradientSeekBar
-import com.apandroid.colorwheel.gradientseekbar.currentColorAlpha
 import com.apandroid.colorwheel.gradientseekbar.setBlackToColor
 
 import com.wefika.horizontalpicker.HorizontalPicker
@@ -21,7 +15,6 @@ import dev.jorgecastillo.androidcolorx.library.*
 
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, HorizontalPicker.OnItemClicked  {
     companion object {
@@ -62,7 +55,6 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
 
-        var background = findViewById<View>(R.id.background)
 
 //BIG SETTER FUNCTION
 
@@ -205,7 +197,6 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         colorWheel.colorChangeListener = { rgb: Int ->
 
             gradientSeekBar.setBlackToColor(rgb)
-            //rgbtext.text = rgb.toString()
             var wht = rgb.blue
 
 
@@ -234,7 +225,6 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         }
 
 
-        // Inputs
 
 
 
@@ -244,8 +234,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             var argb = Color.rgb(r1,g1,b1)
             var rgb = Color.rgb(r1,g1,b1)
             chosen_colour.setColorFilter(argb)
-            //colorWheel.rgb = argb
-            //gradientSeekBar.offset = 0F
+
             setter(argb, i, rgb)
 
 
@@ -255,12 +244,11 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
 
-        var bitch = findViewById<Button>(R.id.setbutton)
+        var setButton = findViewById<Button>(R.id.setbutton)
 
-            bitch.setOnClickListener(){
+            setButton.setOnClickListener {
 
 
-                //can be chucked
 
                 val hex = findViewById<EditText>(R.id.hexinput)
                 val red = findViewById<EditText>(R.id.r)
@@ -275,12 +263,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
                     println("executing try at end")
-                    //colorWheel.rgb = argb
-                   /* hex.text.clear()
-                    hex.text.clear()
-                    red.text.clear()
-                    green.text.clear()
-                    blue.text.clear()*/
+
                     setter(argb, i, rgb)
                     return@setOnClickListener
 
@@ -291,19 +274,16 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                     println("throwing hex error")
                 }
 
-                // this can be chucked
 
 
 
                 try {
                     if (red.text.toString().isEmpty()) {
-                     //   Toast.makeText(this, "incomplete red value", Toast.LENGTH_SHORT).show()
                         bruh.performClick()
                         return@setOnClickListener
 
                     }
                     if (green.text.toString().isEmpty()) {
-                    //    Toast.makeText(this, "incomplete green value", Toast.LENGTH_SHORT).show()
                         bruh.performClick()
 
                         return@setOnClickListener
@@ -311,7 +291,6 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
                     }
                     if (blue.text.toString().isEmpty()) {
-                    //    Toast.makeText(this, "incomplete blue value", Toast.LENGTH_SHORT).show()
                         bruh.performClick()
                         return@setOnClickListener
 
@@ -340,10 +319,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                             b1 = 255
                             blue.setText(b1.toString())
                         }
-/*                        hex.text.clear()
-                        red.text.clear()
-                        green.text.clear()
-                        blue.text.clear()*/
+
                         jebsieszmato(r1, g1, b1)
 
 
@@ -361,7 +337,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
             }
 
-        bruh.setOnClickListener(){
+        bruh.setOnClickListener {
 
             var argb = gradientSeekBar.argb
             var rgb = gradientSeekBar.argb
@@ -371,7 +347,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
         }
 
 
-        clear.setOnClickListener(){
+        clear.setOnClickListener {
             val hex = findViewById<EditText>(R.id.hexinput)
             val red = findViewById<EditText>(R.id.r)
             val green = findViewById<EditText>(R.id.g)
@@ -391,132 +367,21 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
     override fun onItemSelected(index:Int) {
         i = index
         println(i)
-        val bruh = findViewById<Button>(R.id.bruh)
-
-        //colorWheel.rgb = colorWheel.rgb
         val bitch = findViewById<Button>(R.id.setbutton)
 
 
-        val red = findViewById<EditText>(R.id.r)
-        val green = findViewById<EditText>(R.id.g)
-        val blue = findViewById<EditText>(R.id.b)
-
         bitch.performClick()
-        //bruh.performClick()
 
-/*        try {
-
-
-
-        if (red.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        if (green.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        if (blue.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        else
-
-        {   var g1 = green.text.toString().toInt()
-            if (g1 > 255){
-                g1 = 255
-                green.setText(g1.toString())
-            }
-            var r1 = red.text.toString().toInt()
-            if (r1 > 255){
-                r1 = 255
-                red.setText(r1.toString())
-
-            }
-            var b1 = blue.text.toString().toInt()
-            if (b1 > 255){
-                b1 = 255
-                blue.setText(b1.toString())
-            }
-
-            colorWheel.rgb = Color.rgb(r1,g1,b1)
-            bitch.performClick()
-
-            return}
-
-        }
-
-        catch (e: NumberFormatException){
-            Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
-            return
-        }*/
     }
     override fun onItemClicked(index:Int) {
         i = index
         println(i)
         val bitch = findViewById<Button>(R.id.setbutton)
-        //  colorWheel.rgb = colorWheel.rgb
-/*
 
 
-        val red = findViewById<EditText>(R.id.r)
-        val green = findViewById<EditText>(R.id.g)
-        val blue = findViewById<EditText>(R.id.b)*/
-
-        val bruh = findViewById<Button>(R.id.bruh)
-
-        //bruh.performClick()
 
         bitch.performClick()
 
-/*            try {
-
-
-        if (red.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        if (green.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        if (blue.text.toString().isEmpty() ){
-            colorWheel.rgb = colorWheel.rgb
-            return
-        }
-        else
-
-            {var g1 = green.text.toString().toInt()
-                if (g1 > 255){
-                    g1 = 255
-                    green.setText(g1.toString())
-                }
-            var r1 = red.text.toString().toInt()
-                if (r1 > 255){
-                    r1 = 255
-                    red.setText(r1.toString())
-
-                }
-            var b1 = blue.text.toString().toInt()
-                if (b1 > 255){
-                    b1 = 255
-                    blue.setText(b1.toString())
-
-                }
-            colorWheel.rgb = Color.rgb(r1,g1,b1)
-
-                bitch.performClick()
-
-
-                return}
-
-            }
-
-
-            catch (e: NumberFormatException){
-                Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
-                return
-            }*/
 
 
     }
