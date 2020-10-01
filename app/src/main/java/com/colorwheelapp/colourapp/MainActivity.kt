@@ -214,10 +214,10 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             var cleargreen = findViewById<EditText>(R.id.g)
             var clearhex = findViewById<EditText>(R.id.hexinput)
 
-            clearred.text.clear()
+/*            clearred.text.clear()
             clearblue.text.clear()
             cleargreen.text.clear()
-            clearhex.setText(R.string.hexprompt)
+            clearhex.setText(R.string.hexprompt)*/
 
 
             var rgb = colorWheel.rgb
@@ -234,6 +234,8 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
             var argb = Color.rgb(r1,g1,b1)
             var rgb = Color.rgb(r1,g1,b1)
             chosen_colour.setColorFilter(argb)
+            colorWheel.rgb = argb
+
 
             setter(argb, i, rgb)
 
@@ -263,7 +265,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
 
                     println("executing try at end")
-
+                    colorWheel.rgb = argb
                     setter(argb, i, rgb)
                     return@setOnClickListener
 
@@ -367,20 +369,20 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
     override fun onItemSelected(index:Int) {
         i = index
         println(i)
-        val bitch = findViewById<Button>(R.id.setbutton)
+        val setter = findViewById<Button>(R.id.setbutton)
 
 
-        bitch.performClick()
+        setter.performClick()
 
     }
     override fun onItemClicked(index:Int) {
         i = index
         println(i)
-        val bitch = findViewById<Button>(R.id.setbutton)
+        val setter = findViewById<Button>(R.id.setbutton)
 
 
 
-        bitch.performClick()
+        setter.performClick()
 
 
 
