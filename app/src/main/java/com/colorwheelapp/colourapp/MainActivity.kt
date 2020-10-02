@@ -251,6 +251,21 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
 
                 try {
                     var hexint = hex.text.toString()
+
+                    //this bit is added
+                    var first = hexint.substring(0,1)
+                    if (first != "#"){
+                        hexint = "#$hexint"
+
+                    }
+                    else{
+                        println("skipping")
+                    }
+
+
+                    //added bit ends
+
+
                     var argb = parseColor(hexint)
                     var rgb = parseColor(hexint)
 
@@ -264,6 +279,7 @@ class MainActivity : AppCompatActivity(), HorizontalPicker.OnItemSelected, Horiz
                 }
 
                 catch (t: Throwable ){
+                    //Toast.makeText(this, "invalid value", Toast.LENGTH_SHORT).show()
 
                     println("throwing hex error")
                 }
