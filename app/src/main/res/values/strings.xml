@@ -14,7 +14,7 @@
     <string name="r">r:</string>
     <string name="g">g:</string>
     <string name="b">b:</string>
-    <string name="hexprompt">#</string>
+    <string name="hexprompt">Enter Hex value: #</string>
     <string name="prompt">Enter </string>
     <string name="prompt2">or </string>
     <string name="set">Set colour</string>
